@@ -1,0 +1,389 @@
+/* ==========================================================
+   styles.css - Noy Dadon personal website
+   ========================================================== */
+
+/* ---------- Colors used in the site ---------- */
+:root {
+    --plum: #5b3a72;
+    --lavender: #b48cc8;
+    --pink: #d6619a;
+    --light-pink: #f6e3ef;
+    --background: #fdf7fb;
+    --text: #3d3346;
+}
+
+/* smooth scrolling when clicking the menu links */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: "Merriweather", serif;
+    color: var(--text);
+    background-color: var(--background);
+}
+
+/* ---------- Element selectors ---------- */
+h1 {
+    color: #ffffff;
+    font-size: 5.625rem;
+    margin: 50px auto 0 auto;
+    font-family: "Sacramento", cursive;
+    font-weight: normal;
+}
+
+h2 {
+    color: var(--plum);
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    padding-bottom: 10px;
+}
+
+h3 {
+    color: var(--pink);
+    font-family: "Montserrat", sans-serif;
+    margin-bottom: 0;
+}
+
+p {
+    line-height: 2;
+}
+
+/* the <hr> appears as a row of dots between the sections */
+hr {
+    border: dotted var(--lavender) 6px;
+    border-bottom: none;
+    width: 4%;
+    margin: 100px auto;
+}
+
+a {
+    color: var(--pink);
+    font-family: "Montserrat", sans-serif;
+    margin: 10px 20px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--plum);
+}
+
+/* ---------- Top container ---------- */
+.top-container {
+    background: linear-gradient(160deg, var(--plum), var(--pink));
+    position: relative;
+    padding-top: 40px;
+    overflow: hidden;
+}
+
+/* flexbox menu at the top */
+.top-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.top-nav a {
+    color: #ffffff;
+    padding: 6px 14px;
+    border: 1px solid transparent;
+    border-radius: 20px;
+}
+
+.top-nav a:hover {
+    border-color: #ffffff;
+    color: #ffffff;
+}
+
+.title-text {
+    position: relative;
+    z-index: 1;
+    padding-bottom: 40px;
+}
+
+/* descendant selector: only the h2 inside the title */
+.title-text h2 {
+    color: var(--light-pink);
+    font-size: 2rem;
+    margin-top: 0;
+}
+
+.cloud {
+    position: absolute;
+    width: 160px;
+    animation: float 6s ease-in-out infinite;
+}
+
+.top-cloud {
+    right: 15%;
+    top: 90px;
+}
+
+.bottom-cloud {
+    left: 12%;
+    bottom: 120px;
+    width: 120px;
+    animation-delay: 2s;
+}
+
+.hills {
+    display: block;
+    width: 100%;
+    height: 150px;
+}
+
+/* the clouds move slowly up and down */
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ---------- Middle container ---------- */
+.middle-container {
+    margin: 80px 0;
+}
+
+.profile-img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--light-pink);
+    box-shadow: 0 10px 25px rgba(91, 58, 114, 0.25);
+    transition: transform 0.4s;
+}
+
+.profile-img:hover {
+    transform: rotate(-6deg) scale(1.05);
+}
+
+.intro {
+    width: 40%;
+    margin: auto;
+}
+
+/* ---------- Skills: grid of cards ---------- */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 60%;
+    margin: 60px auto 0 auto;
+    text-align: left;
+}
+
+/* each card is a flexbox: image next to the text */
+.item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 14px rgba(91, 58, 114, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(91, 58, 114, 0.18);
+}
+
+/* child selector: the image directly inside a card */
+.item > img {
+    width: 110px;
+    flex-shrink: 0;
+}
+
+.item p {
+    margin: 6px 0 0;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* tags list without bullets */
+.tags {
+    list-style: none;
+    padding: 0;
+    margin: 50px auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 700px;
+}
+
+.tags li {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--light-pink);
+    color: var(--plum);
+    padding: 8px 18px;
+    border-radius: 20px;
+}
+
+/* every second tag gets a different color */
+.tags li:nth-child(even) {
+    background-color: var(--lavender);
+    color: #ffffff;
+}
+
+/* ---------- Experience table ---------- */
+.timeline {
+    width: 60%;
+    margin: 40px auto 0;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(91, 58, 114, 0.08);
+}
+
+.timeline th {
+    background-color: var(--plum);
+    color: #ffffff;
+    font-family: "Montserrat", sans-serif;
+    padding: 14px;
+}
+
+.timeline td {
+    padding: 14px;
+    border-bottom: 1px solid var(--light-pink);
+}
+
+.timeline tbody tr:nth-child(odd) {
+    background-color: #fcf3f8;
+}
+
+.timeline tbody tr:hover {
+    background-color: var(--light-pink);
+}
+
+/* first column (years) in pink */
+.timeline td:first-child {
+    color: var(--pink);
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* ---------- Contact ---------- */
+.contact-message {
+    width: 40%;
+    margin: 40px auto 60px;
+}
+
+.btn {
+    background: var(--plum);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 12px 24px;
+    display: inline-block;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background: var(--pink);
+    color: #ffffff;
+    transform: scale(1.05);
+}
+
+/* ---------- Footer ---------- */
+.bottom-container {
+    background: linear-gradient(160deg, var(--plum), var(--pink));
+    padding: 50px 0 20px;
+}
+
+.footer-link {
+    color: var(--light-pink);
+}
+
+.footer-link:hover {
+    color: #ffffff;
+}
+
+/* attribute selector: links that open in a new tab get an arrow */
+a[target="_blank"]::after {
+    content: " \2197";
+}
+
+.copyright {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================
+   Responsive design - media queries
+   ========================================================== */
+
+/* tablets */
+@media (max-width: 900px) {
+    .parent,
+    .timeline {
+        width: 85%;
+    }
+
+    .intro,
+    .contact-message {
+        width: 70%;
+    }
+}
+
+/* phones */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .title-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .cloud {
+        width: 90px;
+    }
+
+    /* one card per row */
+    .parent {
+        grid-template-columns: 1fr;
+        width: 90%;
+    }
+
+    .item > img {
+        width: 80px;
+    }
+
+    .intro,
+    .contact-message {
+        width: 88%;
+    }
+
+    .timeline {
+        width: 94%;
+        font-size: 0.85rem;
+    }
+
+    .timeline th,
+    .timeline td {
+        padding: 10px 6px;
+    }
+
+    hr {
+        width: 15%;
+        margin: 60px auto;
+    }
+}
